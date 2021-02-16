@@ -7,7 +7,7 @@ FROM openjdk:8-jdk-alpine
 
 #RUN apk add --no-cache openjdk8="$JAVA_ALPINE_VERSION"
 
-ENV OTEL_VERSION 0.15.0
+ENV OTEL_VERSION 0.16.0
 ENV OTEL_JAR_FILE opentelemetry-javaagent-all.jar
 
 ENV APP_HOME /app/bin
