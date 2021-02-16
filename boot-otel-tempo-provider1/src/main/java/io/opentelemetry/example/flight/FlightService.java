@@ -36,7 +36,21 @@ public class FlightService {
  
         span.addEvent("template.processing2.start", atttributes("321"));
         span.addEvent("template.processing2.end", atttributes("321"));
+
+		doSomeMoreWorkNewSpan();
     }
+
+
+	@WithSpan
+	public void doSomeMoreWorkNewSpan() {
+		LOGGER.info("Doing some work In New span");
+		Span span = Span.current();
+
+		span.setAttribute("template.a2", "some value");
+
+		span.addEvent("template.processing2.start", atttributes("321"));
+		span.addEvent("template.processing2.end", atttributes("321"));
+	}
  
     private Attributes atttributes(String id) {
         return Attributes.of(AttributeKey.stringKey("app.id"), id);
